@@ -45,3 +45,4 @@ group :development do
   gem 'spring'
 end
 
+  gem 'devise' # ユーザーの管理・ログイン機能
