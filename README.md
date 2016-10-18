@@ -4,6 +4,7 @@
 ### association
 * has_many :messages
 * has_many :members
+* has_many :groups, through: :members
 ### column
 * name :string, null: false
 * email :string, null: false
@@ -26,6 +27,7 @@
 ### association
 * has_many :messages
 * has_many :members
+* has_many :users, through: :members
 ### column
 * t.string :group_name
 
