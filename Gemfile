@@ -48,4 +48,5 @@ end
   gem 'devise' # ユーザーの管理・ログイン機能
   gem 'haml-rails'  # Haml
   gem 'erb2haml' #erbをHamlへ変換
+  gem 'font-awesome-rails' # font-awesomeを使用
 
