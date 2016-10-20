@@ -5,6 +5,7 @@
 * has_many :messages
 * has_many :members
 * has_many :groups, through: :members
+
 ### column
 * name :string, null: false
 * email :string, null: false
@@ -16,6 +17,7 @@
 ### association
 * belongs_to :user
 * belongs_to :group
+
 ### column
 * body :text, null: false
 * image :string
@@ -28,6 +30,7 @@
 * has_many :messages
 * has_many :members
 * has_many :users, through: :members
+
 ### column
 * t.string :group_name
 
@@ -35,6 +38,7 @@
 ### association
 * belongs_to :user
 * belongs_to :group
+
 ### column
 * references :user, foreign_key: true
 * references :group, foreign_key: true
