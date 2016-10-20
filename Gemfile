@@ -46,3 +46,6 @@ group :development do
 end
 
   gem 'devise' # ユーザーの管理・ログイン機能
+  gem 'haml-rails'  # Haml
+  gem 'erb2haml' #erbをHamlへ変換
+
