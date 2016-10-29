@@ -6,14 +6,18 @@ class MessagesController < ApplicationController
   end
 
   def create
-     Message.create(create_params)
-     redirect_to root_path
+     @message = Message.create(create_params)
+
+    if @message.save
+      redirect_to root_path
+    else
+      redirect_to root_path, notice: 'メッセージを入力してください'
+    end
   end
 
   private
     def create_params
-      # Message.create( image: params[:image], body: params[:body])
       params.permit( :image, :body)
+      # params.require( :message ).permit( :image, :body)
     end
-
 end
