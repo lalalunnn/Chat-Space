@@ -64,8 +64,8 @@
     .chat__footer
       = form_for @message, method: "post" do |f|
         .chat__footer--messages
-          = f.text_area :body, name: "body", placeholder: "type a message", rows: "1"
+          = f.text_area :body, placeholder: "type a message", rows: "1"
           %label.chat__footer--file
             = f.file_field :image
             %i.fa.fa-image
-          = f.submit name: "commit", value: "Send", id: "submit", data: { disable_with: "送信中..." }
+          = f.submit value: "Send", id: "submit", data: { disable_with: "送信中..." }
