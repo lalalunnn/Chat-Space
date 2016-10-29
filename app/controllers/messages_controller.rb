@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-     @message = Message.create(create_params)
+     @message = Message.new(create_params)
 
     if @message.save
       redirect_to root_path
@@ -17,7 +17,6 @@ class MessagesController < ApplicationController
 
   private
     def create_params
-      params.permit( :image, :body)
-      # params.require( :message ).permit( :image, :body)
+      params.require(:message).permit(:body, :image)
     end
 end
