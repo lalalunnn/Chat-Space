@@ -6,7 +6,7 @@
       .chat__header--edits
         %a.chat__icon{ :href => "" }
           %i.fa.fa-pencil-square-o.fa-lg
-        %a.chat__icon{ :href => "" }
+        %a.chat__icon{ :href => edit_user_registration_path }
           %i.fa.fa-cog.fa-lg
 
     .chat__groups
@@ -46,7 +46,7 @@
       .chat__top
         .chat__top--groupname sampleグループ名前名前名前名前名前名前名前名前名前名前名前名前名前名前名前名前名前名前
         .chat__top--members Members: nozawa
-      .chat__editbtn Edit
+      %a.chat__editbtn{:href => "" }Edit
 
     .chat__body
       %ul.chat__messages
