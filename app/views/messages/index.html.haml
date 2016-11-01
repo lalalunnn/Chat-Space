@@ -4,9 +4,9 @@
     .chat__header
       .chat__header--name nozawa
       .chat__header--edits
-        %a.chat__icon{ :href => "" }
+        = link_to root_path, class: "chat__icon" do
           %i.fa.fa-pencil-square-o.fa-lg
-        %a.chat__icon{ :href => edit_user_path(current_user.id) }
+        = link_to edit_user_path(current_user.id), class: "chat__icon" do
           %i.fa.fa-cog.fa-lg
 
     .chat__groups
