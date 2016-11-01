@@ -1,0 +1,35 @@
+<div class="layout-notification">
+  <div class='account-page' id='account-page'>
+    <div class='account-page__inner clearfix'>
+      <div class='account-page__inner--left account-page__header'>
+        <h2>Edit Accountここはレジストのeditビューです！！！</h2>
+        <h5>アカウントの編集</h5>
+        <a class="btn" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a>
+        <a class="btn" href="http://localhost:3000">トップページに戻る</a>
+      </div>
+      <div class='account-page__inner--right user-form'>
+        <form class="edit_user" id="edit_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="QSCV0cqo2VrQ4eUeaQSQ69CT3YTPaIyEWIAHyAHbOdBniOiQAIwywAOs14Mwy13s17YtlLf88DxzUkzgwqvdiw==" />
+        <div class='field'>
+          <div class='field-label'>
+            <label for="user_name">Name</label>
+          </div>
+          <div class='field-input'>
+            <input autofocus="autofocus" type="text" value="" name="user[name]" id="user_name" />
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <label for="user_email">メールアドレス</label>
+          </div>
+          <div class='field-input'>
+            <input type="email" value="" name="user[email]" id="user_email" />
+          </div>
+        </div>
+        <div class='actions'>
+          <input type="submit" name="commit" value="Update" class="btn" data-disable-with="Update" />
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>

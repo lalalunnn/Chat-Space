@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @messages = Message.all
@@ -11,7 +12,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to root_path
     else
-      redirect_to root_path, notice: 'メッセージを入力してください'
+      redirect_to root_path, alert: 'メッセージを入力してください'
     end
   end
 
