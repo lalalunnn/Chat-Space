@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    # user.update(userupdate_params)
     if user.update(userupdate_params)
       flash[:edit] = "ユーザー情報を保存できました"
       redirect_to root_path
@@ -13,7 +12,6 @@ class UsersController < ApplicationController
       flash[:alert] = "保存できませんでした"
       redirect_to edit_user_path
     end
-    # redirect_to root_path
   end
 
   private
