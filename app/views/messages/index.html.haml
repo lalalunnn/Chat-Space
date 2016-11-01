@@ -6,7 +6,7 @@
       .chat__header--edits
         %a.chat__icon{ :href => "" }
           %i.fa.fa-pencil-square-o.fa-lg
-        %a.chat__icon{ :href => edit_user_registration_path }
+        %a.chat__icon{ :href => edit_user_path(current_user.id) }
           %i.fa.fa-cog.fa-lg
 
     .chat__groups
