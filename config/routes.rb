@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   resources :messages
   resources :users, only: [:edit , :update]
-
   root  'messages#index'
 
 end
