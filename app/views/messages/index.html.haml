@@ -46,7 +46,7 @@
       .chat__top
         .chat__top--groupname sampleグループ名前名前名前名前名前名前名前名前名前名前名前名前名前名前名前名前名前名前
         .chat__top--members Members: nozawa
-      %a.chat__editbtn{:href => "" }Edit
+      = link_to 'Edit', root_path, class: "chat__editbtn"
 
     .chat__body
       %ul.chat__messages
