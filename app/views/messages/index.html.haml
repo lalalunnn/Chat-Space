@@ -4,9 +4,9 @@
     .chat__header
       .chat__header--name nozawa
       .chat__header--edits
-        = link_to root_path, class: "chat__icon" do
+        = link_to new_group_path, class: "chat__icon" do
           %i.fa.fa-pencil-square-o.fa-lg
-        = link_to edit_user_path(current_user.id), class: "chat__icon" do
+        = link_to edit_user_path(current_user), class: "chat__icon" do
           %i.fa.fa-cog.fa-lg
 
     .chat__groups
@@ -38,9 +38,6 @@
         .chat__group--name sampleグループ3
         .chat__group--message あああああああ3
 
-
-
-
   .chat__main
     .chat__header
       .chat__top
@@ -54,8 +51,7 @@
           - @messages.each do |message|
             .chat__message__header
               .chat__message__header--name
-                / = message.user.name
-                nozawa
+                = message.user.nickname
               .chat__message__header--time
                 = message.created_at.strftime('%Y/%m/%d %H:%M:%S')
             .chat__message--body
