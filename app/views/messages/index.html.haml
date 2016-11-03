@@ -2,7 +2,8 @@
 .chats
   .chat__side
     .chat__header
-      .chat__header--name nozawa
+      .chat__header--name
+        = current_user.nickname
       .chat__header--edits
         = link_to new_group_path, class: "chat__icon" do
           %i.fa.fa-pencil-square-o.fa-lg
@@ -10,33 +11,11 @@
           %i.fa.fa-cog.fa-lg
 
     .chat__groups
-      .chat__group
-        .chat__group--name sampleグループ名前名前名前名前名前名前名前名前名前名前名前名前名前名前名前名前名前名前
-        .chat__group--message あああああああ
-      .chat__group
-        .chat__group--name sampleグループ2
-        .chat__group--message あああああああ2
-      .chat__group
-        .chat__group--name sampleグループ3
-        .chat__group--message あああああああ3
-      .chat__group
-        .chat__group--name sampleグループ3
-        .chat__group--message あああああああ3
-      .chat__group
-        .chat__group--name sampleグループ3
-        .chat__group--message あああああああ3
-      .chat__group
-        .chat__group--name sampleグループ3
-        .chat__group--message あああああああ3
-      .chat__group
-        .chat__group--name sampleグループ3
-        .chat__group--message あああああああ3
-      .chat__group
-        .chat__group--name sampleグループ3
-        .chat__group--message あああああああ3aaaaaaaaaaaaaaaaaaaaaaaaa
-      .chat__group
-        .chat__group--name sampleグループ3
-        .chat__group--message あああああああ3
+      - @groups.each do |group|
+        .chat__group
+          .chat__group--name
+            = group.group_name
+          .chat__group--message
 
   .chat__main
     .chat__header
@@ -58,10 +37,11 @@
               = message.body
 
     .chat__footer
-      = form_for @message, method: "post" do |f|
-        .chat__footer--messages
-          = f.text_area :body, placeholder: "type a message", rows: "1"
-          %label.chat__footer--file
-            = f.file_field :image
-            %i.fa.fa-image
-          = f.submit value: "Send", id: "submit", data: { disable_with: "送信中..." }
+      / = form_for @message do |f|
+      /   .chat__footer--messages
+      /     = f.text_area :body, placeholder: "type a message", rows: "1"
+      /     %label.chat__footer--file
+      /       = f.file_field :image
+      /       %i.fa.fa-image
+
+      /     = f.submit value: "Send", id: "submit", data: { disable_with: "送信中..." }
