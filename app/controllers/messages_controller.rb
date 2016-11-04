@@ -3,7 +3,6 @@ class MessagesController < ApplicationController
 
   def create
      @message = Message.new(create_params)
-     # @groups = current_user.groups
 
     if @message.save
       redirect_to :back, notice: '投稿できました'
