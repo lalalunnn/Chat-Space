@@ -1,0 +1,55 @@
+
+.chats
+  .chat__side
+    .chat__header
+      .chat__header--name
+        = current_user.nickname
+      .chat__header--edits
+        = link_to new_group_path, class: "chat__icon" do
+          %i.fa.fa-pencil-square-o.fa-lg
+        = link_to edit_user_path(current_user.id), class: "chat__icon" do
+          %i.fa.fa-cog.fa-lg
+
+    .chat__groups
+      - @groups.each do |group|
+        .chat__group
+          .chat__group--name
+            = link_to group.group_name, group_path(group.id), class: "chat__group--name"
+            .chat__group--message
+              左のサイドバー：ここに新着メッセージを表示させたい
+
+  .chat__main
+    .chat__header
+      .chat__top
+        .chat__top--groupname
+          = @group.group_name
+
+        .chat__top--members
+          Members:
+          - @group.users.each do |user|
+            = user.nickname
+
+      = link_to 'Edit', edit_group_path(params[:id]), class: "chat__editbtn"
+
+    .chat__body
+      %ul.chat__messages
+        %li.chat__message
+          - @messages.each do |message|
+            .chat__message__header
+              .chat__message__header--name
+                / = @messages
+                = message.user.nickname
+              .chat__message__header--time
+                = message.created_at.strftime('%Y/%m/%d %H:%M:%S')
+            .chat__message--body
+              = message.body
+
+    .chat__footer
+      = form_for [@group, @message] do |f|
+        .chat__footer--messages
+          = f.text_area :body, placeholder: "type a message", rows: "1"
+          %label.chat__footer--file
+            = f.file_field :image
+            %i.fa.fa-image
+
+          = f.submit value: "Send", id: "submit", data: { disable_with: "送信中..." }
