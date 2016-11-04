@@ -22,10 +22,10 @@ before_action :authenticate_user!
     @group.users << current_user
 
     if @group.save
-       redirect_to root_url, notice: 'グループの作成に成功しました。'
-     else
-       redirect_to new_group_path ,alert: 'グループの作成に失敗しました。'
-     end
+      redirect_to root_url, notice: 'グループの作成に成功しました。'
+    else
+      redirect_to new_group_path ,alert: 'グループの作成に失敗しました。'
+    end
   end
 
   def edit
