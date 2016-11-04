@@ -37,7 +37,6 @@
           - @messages.each do |message|
             .chat__message__header
               .chat__message__header--name
-                / = @messages
                 = message.user.nickname
               .chat__message__header--time
                 = message.created_at.strftime('%Y/%m/%d %H:%M:%S')
