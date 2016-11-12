@@ -2,13 +2,19 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-     @message = Message.new(create_params)
+    @message = Message.new(create_params)
 
     if @message.save
-      redirect_to :back, notice: '投稿できました'
+      respond_to do |format|
+        format.html
+        format.json {
+          render json: { body: @message.body, nickname: @message.user.nickname, datetime: @message.created_at.strftime('%Y/%m/%d %H:%M:%S') }
+        }
+      end
     else
       redirect_to :back, alert: 'メッセージを入力してください'
     end
+
   end
 
   private

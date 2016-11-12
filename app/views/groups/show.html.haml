@@ -33,8 +33,8 @@
 
     .chat__body
       %ul.chat__messages
-        %li.chat__message
-          - @messages.each do |message|
+        - @messages.each do |message|
+          %li.chat__message
             .chat__message__header
               .chat__message__header--name
                 = message.user.nickname
@@ -51,4 +51,4 @@
             = f.file_field :image
             %i.fa.fa-image
 
-          = f.submit value: "Send", id: "submit", data: { disable_with: "送信中..." }
+          = f.submit value: "Send", id: "submit"
