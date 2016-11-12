@@ -15,7 +15,6 @@ $(function(){
 
     }).done(function(data){
 
-      $('#submit').val('Send');
       var addedMessage =
         '<li class="chat__message">\
           <div class="chat__message__header">\
