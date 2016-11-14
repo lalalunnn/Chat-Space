@@ -8,7 +8,7 @@ before_action :authenticate_user!
   def show
     @groups = current_user.groups
     @group = Group.find(params[:id])
-    @messages = @group.messages
+    @messages = @group.messages.includes(:user)
     @message = Message.new
   end
 
