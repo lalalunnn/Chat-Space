@@ -6,7 +6,8 @@ class UsersController < ApplicationController
     @users = User.where('nickname LIKE ?', "%#{params[:name]}%")
     respond_to do |format|
       format.html { }
-      format.json { render json: @users
+      format.json {
+        render json: @users
       }
     end
   end
