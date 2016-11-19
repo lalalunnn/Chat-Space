@@ -19,17 +19,17 @@ before_action :authenticate_user!
   def create
     @group = Group.new(create_params)
 
-    @group.users << current_user
-
     if @group.save
       redirect_to root_url, notice: 'グループの作成に成功しました。'
     else
-      redirect_to new_group_path ,alert: 'グループの作成に失敗しました。'
+      render :new ,alert: 'グループの作成に失敗しました。'
     end
   end
 
   def edit
     @group = Group.find(params[:id])
+    @members = @group.users
+
   end
 
   def update
