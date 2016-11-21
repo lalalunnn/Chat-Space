@@ -50,4 +50,5 @@ end
   gem 'erb2haml' #erbをHamlへ変換
   gem 'font-awesome-rails' # font-awesomeを使用
   gem 'pry-rails'
+  gem 'carrierwave'
 
