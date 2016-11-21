@@ -2,6 +2,15 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update]
   before_action :correct_user, only: [:edit, :update]
 
+  def index
+    @users = User.where('nickname LIKE ?', "%#{params[:name]}%")
+    respond_to do |format|
+      format.json {
+        render json: @users
+      }
+    end
+  end
+
   def edit
   end
 

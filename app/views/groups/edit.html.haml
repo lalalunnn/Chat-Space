@@ -7,18 +7,32 @@
           = f.label :group_name, "グループ名",class: 'chat-group-form__label'
         .chat-group-form__field--right
           = f.text_field :group_name, placeholder: "グループ名を入力してください",class: 'chat-group-form__input'
+
       .chat-group-form__field.clearfix
         .chat-group-form__field--left
-          = f.label :user_ids,"チャットメンバーを追加", class: 'chat-group-form__label'
+          = f.label :nickname,"チャットメンバーを追加", class: 'chat-group-form__label'
         .chat-group-form__field--right
-          .chat-group-form__search.clearfix
-            = f.collection_check_boxes :user_ids, User.all, :id, :nickname, placeholder: "追加したいユーザー名を入力してください",class: 'chat-group-form__input'
+          .chat-group-form__search
+            = text_field :keyword, :keyword, placeholder: "追加したいメンバーを入力してください", class: "chat-group-form__input", id: "user-search-field"
+
+          #user-search-result
+            .chat-group-user
+              %p.chat-add-group-user__name
+                %a.user-search-add.chat-group-user__btn.chat-group-user__btn--add
+
       .chat-group-form__field.clearfix
         .chat-group-form__field--left
-          = f.label "チャットメンバー", class: 'chat-group-form__label'
+          = f.label :nickname,"チャットメンバー", class: 'chat-group-form__label'
         .chat-group-form__field--right
-          .chat-group-user
-            = current_user.nickname
+          #group-user
+            - if @members
+              - @members.each do |member|
+                .chat-group-user.clearfix
+                  = f.hidden_field :user_ids, multiple: true, value: member.id
+                  %p.chat-group-user__name
+                    = member.nickname
+                  %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove{data: {user_id:"#{member.id}"}} 削除
+
       .chat-group-form__field.clearfix
         .chat-group-form__field--left
         .chat-group-form__field--right
