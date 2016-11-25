@@ -29,7 +29,6 @@ function build_html(data){
     '<img src='+data.image+'></div>\
     </li>';
 
-      // $('.chat__messages').append(addedMessage2);
     if (data.image != null) {
       $('.chat__messages').append(addedMessage2);
     } else{
