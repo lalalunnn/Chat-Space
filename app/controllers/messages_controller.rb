@@ -6,9 +6,8 @@ class MessagesController < ApplicationController
 
     if @message.save
       respond_to do |format|
-        format.html
         format.json {
-          render json: { body: @message.body, nickname: @message.user.nickname, datetime: @message.created_at.strftime('%Y/%m/%d %H:%M:%S') }
+          render json: { body: @message.body, image: @message.image.url, nickname: @message.user.nickname, datetime: @message.created_at.strftime('%Y/%m/%d %H:%M:%S') }
         }
       end
     else
