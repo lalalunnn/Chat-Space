@@ -50,5 +50,8 @@ end
   gem 'erb2haml' #erbをHamlへ変換
   gem 'font-awesome-rails' # font-awesomeを使用
   gem 'pry-rails'
-  gem 'carrierwave'
+  gem 'carrierwave' # 画像の投稿機能
+  gem 'dotenv-rails' # 環境によって変わる設定値
+  gem 'config' # 開発環境ごとに定数を YAML ファイルで管理
+  gem 'fog' # 特定のURLのファイルをS3へ保存する
 
