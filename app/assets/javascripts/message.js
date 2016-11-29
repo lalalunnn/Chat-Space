@@ -38,14 +38,13 @@ function build_html(data){
 
 
 $(function(){
-  $('#new_message').on('submit', function(e) {
+  $('#new_message').on('click', function(e) {
+    e.preventDefault();
 
     var fd = new FormData($(this)[0]);
 
     var now_url = $(location).attr('href');
     var ajax_url = now_url + "/messages.json"
-
-    e.preventDefault();
 
     $.ajax({
       url: ajax_url,
@@ -59,11 +58,10 @@ $(function(){
       build_html(data);
       console.log(data);
 
-      // formのデータをクリアする
-      $('#message_body').val('');
+      $("form")[0].reset();
 
     }).fail(function(xhr,status,error){
-      console.log( 'ERROR', xhr,status,error );
+      console.log( 'エラー', xhr,status,error );
 
     });
 
