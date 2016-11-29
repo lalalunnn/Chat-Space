@@ -10,6 +10,16 @@ before_action :authenticate_user!
     @group = Group.find(params[:id])
     @messages = @group.messages.includes(:user)
     @message = Message.new
+
+    respond_to do |format|
+      format.html{ }
+      format.json {
+        render json: {
+          nickname: current_user.nickname,
+          messages: @messages
+        }
+      }
+    end
   end
 
   def new

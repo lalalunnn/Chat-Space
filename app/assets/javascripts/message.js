@@ -67,3 +67,56 @@ $(function(){
 
   });
 });
+
+
+
+
+
+// 自動更新
+function auto_added(data) {
+  for (var i = 0; i < data.messages.length; i++) {
+    var build_html =
+    '<li class="chat__message">\
+    <div class="chat__message__header">\
+    <div class="chat__message__header--name">'
+    + data.nickname +
+    '</div>\
+    <div class="chat__message__header--time">'
+    + data.messages[i].created_at +
+    '</div>\
+    </div>\
+    <div class="chat__message--body">'
+    + data.messages[i].body +
+    '</div>\
+    </li>';
+
+    if (data.messages[i].image.url != null) {
+      $('.chat__messages').append(build_html, '<img src=' + data.messages[i].image.url + '>');
+
+    } else {
+      $('.chat__messages').append(build_html);
+
+    };
+  };
+};
+
+$(function(){
+  var now_url = $(location).attr('href');
+  var ajaxget_url = now_url + ".json";
+
+  setInterval(function(){
+    $.ajax({
+        url: ajaxget_url,
+        type: 'GET',
+        dataType: 'json'
+      })
+      .done(function(data) {
+        $('.chat__messages').empty();
+        auto_added(data);
+        console.log(data);
+      })
+      .fail(function() {
+        console.log("非同期失敗");
+      });
+  },2500);
+});
